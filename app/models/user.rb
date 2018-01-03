@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
   has_many :guests, through: :reservations
   has_many :host_reviews, through: :reservations, source: :review
   has_many :lodings, through: :trips, source: :listing
+  has_many :hosts, through: :lodings
 
 end
