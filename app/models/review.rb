@@ -5,5 +5,10 @@ class Review < ActiveRecord::Base
   validates :description, presence: true
   validates :rating, presence: true
   validates :reservation_id, presence: true
-  
+  validate :reservation_passed
+
+  def reservation_passed
+    if !(self.reservation && (self.reservation.checkout < Time.now))
+  end
+
 end
