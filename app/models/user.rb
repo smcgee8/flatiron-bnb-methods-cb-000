@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   has_many :reviews, :foreign_key => 'guest_id'
   has_many :guests, through: :reservations
   has_many :reviews, through: :guests
-  
+
 end
