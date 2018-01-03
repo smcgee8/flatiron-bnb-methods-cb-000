@@ -9,6 +9,8 @@ class Review < ActiveRecord::Base
 
   def reservation_passed
     if !(self.reservation && (self.reservation.checkout < Time.now))
+      errors.add(:reservation_id, "Invalid reservation.")
+    end
   end
 
 end
